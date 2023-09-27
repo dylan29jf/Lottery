@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import {
   Avatar,
   Button,
@@ -13,13 +13,13 @@ import {
 import { HiBuildingOffice } from "react-icons/hi2";
 import { useStore } from "../../hooks";
 
-const InitModal: FC = () => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+interface IProps {
+  isOpen: boolean;
+}
+
+const SettingsModal: FC<IProps> = ({ isOpen }) => {
+  const { onOpenChange } = useDisclosure();
   const { organization, onChangeOrganization } = useStore();
-  
-  useEffect(() => {
-    onOpen();
-  }, []);
 
   return (
     <Modal
@@ -27,12 +27,11 @@ const InitModal: FC = () => {
       backdrop="blur"
       defaultOpen
       onOpenChange={onOpenChange}
-      isDismissable={false}
     >
       <ModalContent>
         {(onClose) => (
           <>
-            <ModalHeader className="flex flex-col gap-1">Lottery</ModalHeader>
+            <ModalHeader className="flex flex-col gap-1">Settings</ModalHeader>
             <ModalBody>
               <div className="">
                 <Avatar
@@ -56,7 +55,6 @@ const InitModal: FC = () => {
                 color="primary"
                 onClick={onClose}
                 isDisabled={organization.length <= 3}
-                
               >
                 Save
               </Button>
@@ -67,4 +65,4 @@ const InitModal: FC = () => {
     </Modal>
   );
 };
-export default InitModal;
+export default SettingsModal;

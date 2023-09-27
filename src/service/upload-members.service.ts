@@ -1,10 +1,14 @@
 import { readExcelFile } from "../utilities";
 import { toast } from "react-hot-toast";
 
-export const uploadMembers = (file: File) => {
+export const uploadMembers = async (file: File) => {
   const extension = file.name.split(".").pop()?.toLocaleLowerCase();
   if (extension === "xlsx") {
-    return readExcelFile(file);
+    try {
+      return await readExcelFile(file);
+    } catch (error) {
+      return null;
+    }
   } else {
     toast.error("Invalid File", {
       style: {
@@ -13,4 +17,6 @@ export const uploadMembers = (file: File) => {
       },
     });
   }
+
+  return null;
 };
