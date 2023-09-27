@@ -2,12 +2,14 @@ import { Avatar, Button } from "@nextui-org/react";
 import { FC } from "react";
 import { useStore } from "../../hooks";
 import { Settings } from "../settings";
+import { MembersModal } from "..";
 
 const Lottery: FC = () => {
   const { organization } = useStore();
   return (
     <>
       <Settings />
+      <MembersModal />
       <div className="absolute top-20">
         <Button color="secondary" variant="shadow" size="lg">
           Comenzar Sorteo

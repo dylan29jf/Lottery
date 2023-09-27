@@ -17,7 +17,7 @@ const Settings: FC = () => {
   const { onOpenChange, isOpen, onOpen } = useDisclosure();
   return (
     <>
-      <Tooltip content="Setting">
+      <Tooltip content="Settings" color="foreground" showArrow placement="left">
         <Button
           isIconOnly
           color="default"

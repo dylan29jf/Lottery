@@ -21,11 +21,10 @@ function App() {
     const file = e.target.files?.[0];
     if (file) {
       setLoading(true);
-      setTimeout(() => {
-        const data = uploadMembers(file);
-        console.log(data)
+      setTimeout(async () => {
+        const data = await uploadMembers(file);
+
         if (data) {
-          console.log("Hay data")
           onChangeMembers(data);
           onLoadMembers();
         }

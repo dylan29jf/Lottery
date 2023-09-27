@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dicebear/collection": "^7.0.1",
+    "@dicebear/core": "^7.0.1",
     "@nextui-org/react": "^2.1.13",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
