@@ -2,16 +2,21 @@ import { Avatar, Button } from "@nextui-org/react";
 import { FC } from "react";
 import { useStore } from "../../hooks";
 import { Settings } from "../settings";
-import { MembersModal } from "..";
+import { MembersModal, Winner } from "..";
 
 const Lottery: FC = () => {
-  const { organization } = useStore();
+  const { organization, onChangeShowWinner } = useStore();
   return (
     <>
       <Settings />
       <MembersModal />
       <div className="absolute top-20">
-        <Button color="secondary" variant="shadow" size="lg">
+        <Button
+          color="secondary"
+          variant="shadow"
+          size="lg"
+          onPress={() => onChangeShowWinner(true)}
+        >
           Comenzar Sorteo
         </Button>
       </div>
@@ -25,6 +30,7 @@ const Lottery: FC = () => {
         />
         <p className="text-lg">{organization}</p>
       </div>
+      <Winner />
     </>
   );
 };
