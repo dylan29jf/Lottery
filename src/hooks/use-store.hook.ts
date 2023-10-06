@@ -4,6 +4,7 @@ import { mountStoreDevtool } from "simple-zustand-devtools";
 
 type State = {
   organization: string;
+  logoOrganization: string;
   loadMembers: boolean;
   members: any;
   show: boolean;
@@ -20,6 +21,7 @@ interface Settings {
 
 type Actions = {
   onChangeOrganization: (organization: string) => void;
+  onChangeLogo: (logo: string) => void;
   onLoadMembers: () => void;
   onChangeMembers: (members: any) => void;
   onChangeShow: (value: boolean) => void;
@@ -30,10 +32,11 @@ type Actions = {
 
 export const useStore = create<State & Actions>((set) => ({
   organization: "",
+  logoOrganization: "",
   loadMembers: false,
-  members: {},
+  members: [],
   show: false,
-  winners: {},
+  winners: [],
   settings: {
     delay: 3,
     rounds: 3,
@@ -41,6 +44,7 @@ export const useStore = create<State & Actions>((set) => ({
   },
   showWinner: false,
   onChangeOrganization: (organization) => set(() => ({ organization })),
+  onChangeLogo: (logo) => set(() => ({ logoOrganization: logo })),
   onLoadMembers: () => set(() => ({ loadMembers: true })),
   onChangeShow: (value: boolean) => set(() => ({ show: value })),
   onChangeMembers: (members: any) =>
