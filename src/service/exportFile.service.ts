@@ -24,7 +24,7 @@ export const exportExcelFile = (winners: any) => {
   // Crear un elemento de enlace temporal para descargar el archivo
   const link = document.createElement("a");
   link.href = downloadUrl;
-  link.download = `Winners_${new Date().toDateString}.xlsx`;
+  link.download = `Winners_${new Date().toDateString()}.xlsx`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

@@ -4,6 +4,7 @@ import { useStore } from "../../hooks";
 import { Settings } from "../settings";
 import { MembersModal, Winner, WinnersModal } from "..";
 import { exportExcelFile } from "../../service";
+import { FaFileExcel } from "react-icons/fa";
 
 const Lottery: FC = () => {
   const {
@@ -26,7 +27,9 @@ const Lottery: FC = () => {
             variant="shadow"
             size="lg"
             onPress={() => exportExcelFile(winners)}
+            className="text-white"
             isDisabled={winners - length === 0}
+            endContent={<FaFileExcel />}
           >
             Export excel file
           </Button>
